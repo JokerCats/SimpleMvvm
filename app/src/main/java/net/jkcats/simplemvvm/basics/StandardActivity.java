@@ -10,7 +10,7 @@ import net.jkcats.simplemvvm.widgets.LoadingDialog;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
-public abstract class StandardActivity<VM extends BaseViewModel> extends BaseActivity implements IStatusView {
+public abstract class StandardActivity<VM extends BaseViewModel> extends BaseActivity implements StandardStatus {
 
     protected @Nullable VM mViewModel;
 
@@ -27,7 +27,7 @@ public abstract class StandardActivity<VM extends BaseViewModel> extends BaseAct
 
     private void launchMonitor() {
         if (mViewModel != null) {
-            mViewModel.mCrashData.observe(this, this::showErrorPage);
+            mViewModel.mCrashData.observe(this, this::showErrorView);
             mViewModel.mLoadingData.observe(this, this::showLoadingView);
         }
     }
@@ -50,12 +50,12 @@ public abstract class StandardActivity<VM extends BaseViewModel> extends BaseAct
     }
 
     @Override
-    public void showEmptyPage() {
+    public void showEmptyView() {
 
     }
 
     @Override
-    public void showErrorPage(String errorMsg) {
+    public void showErrorView(String errorMsg) {
         toast(errorMsg);
     }
 
