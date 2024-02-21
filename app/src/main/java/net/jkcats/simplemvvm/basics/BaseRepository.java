@@ -1,11 +1,19 @@
 package net.jkcats.simplemvvm.basics;
 
+import net.jkcats.simplemvvm.network.RequestConfig;
+import net.jkcats.simplemvvm.network.RequestService;
 import net.jkcats.simplemvvm.network.ResponseBlock;
 import net.jkcats.simplemvvm.network.ResponseData;
 import net.jkcats.simplemvvm.network.ResponseState;
-import net.jkcats.simplemvvm.network.RequestConfig;
 
-public class BaseRepository {
+import javax.inject.Inject;
+
+import dagger.hilt.android.AndroidEntryPoint;
+
+public abstract class BaseRepository {
+
+    @Inject
+    protected RequestService mRequestService;
 
     protected void executeSP() {
 
