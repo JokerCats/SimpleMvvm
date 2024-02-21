@@ -35,7 +35,7 @@ public class HomeActivity extends StandardActivity<HomeViewModel> {
         mSendBtn.setOnClickListener(v -> {
             // 请求数据
             if (mViewModel != null) {
-                mViewModel.getHomeData();
+//                mViewModel.getHomeData();
                 mViewModel.requestHomeData();
             }
         });

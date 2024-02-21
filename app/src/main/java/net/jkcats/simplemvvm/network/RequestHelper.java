@@ -3,6 +3,7 @@ package net.jkcats.simplemvvm.network;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RequestHelper {
@@ -39,7 +40,9 @@ public class RequestHelper {
 //                .client(mOkHttpClient)
                 .baseUrl(domain)
                 .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava3CallAdapterFactory.create()) // 添加 RxJava3CallAdapterFactory
                 .build()
                 .create(RequestManifest.class);
     }
+
 }
