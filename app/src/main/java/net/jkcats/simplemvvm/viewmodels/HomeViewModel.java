@@ -11,7 +11,7 @@ import java.util.List;
 
 public class HomeViewModel extends BaseViewModel {
 
-    private final HomeRepository mRepository = new HomeRepository();
+    private final HomeRepository mRepository = new HomeRepository(this);
 
     public final MutableLiveData<List<HomeModel>> homeData = new MutableLiveData<>();
 
@@ -27,5 +27,10 @@ public class HomeViewModel extends BaseViewModel {
                     break;
             }
         });
+    }
+
+    // #### support rxJava ####
+    public void requestHomeData() {
+        mRepository.requestHomeData();
     }
 }

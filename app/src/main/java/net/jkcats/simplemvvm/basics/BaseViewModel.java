@@ -7,9 +7,9 @@ import net.jkcats.simplemvvm.network.RequestBlock;
 
 public class BaseViewModel extends ViewModel {
 
-    protected SingleLiveData<String> mCrashData = new SingleLiveData<>();
+    public SingleLiveData<String> mCrashData = new SingleLiveData<>();
 
-    protected SingleLiveData<Boolean> mLoadingData = new SingleLiveData<>();
+    public SingleLiveData<Boolean> mLoadingData = new SingleLiveData<>();
 
     public void sendRequest(RequestBlock block) {
         try {
@@ -32,11 +32,11 @@ public class BaseViewModel extends ViewModel {
         }).start();
     }
 
-    private void invokeLoading() {
+    public void invokeLoading() {
         mLoadingData.postValue(true);
     }
 
-    private void finishLoading() {
+    public void finishLoading() {
         mLoadingData.postValue(false);
     }
 }

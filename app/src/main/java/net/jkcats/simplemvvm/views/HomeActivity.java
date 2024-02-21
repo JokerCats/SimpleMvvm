@@ -36,6 +36,7 @@ public class HomeActivity extends StandardActivity<HomeViewModel> {
             // 请求数据
             if (mViewModel != null) {
                 mViewModel.getHomeData();
+                mViewModel.requestHomeData();
             }
         });
 
