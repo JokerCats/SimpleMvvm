@@ -32,6 +32,7 @@ android {
 }
 
 dependencies {
+    val lifecycle_version = "2.7.0"
 
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
@@ -45,7 +46,9 @@ dependencies {
     annotationProcessor("com.google.dagger:hilt-android-compiler:2.44")
 
     // LiveData
-    implementation("androidx.lifecycle:lifecycle-livedata:2.7.0")
+    implementation("androidx.lifecycle:lifecycle-livedata:$lifecycle_version")
+    // ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
 
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")

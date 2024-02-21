@@ -9,9 +9,21 @@ import net.jkcats.simplemvvm.repositories.HomeRepository;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
+import dagger.hilt.android.AndroidEntryPoint;
+import dagger.hilt.android.lifecycle.HiltViewModel;
+
+@HiltViewModel
 public class HomeViewModel extends BaseViewModel {
 
-    private final HomeRepository mRepository = new HomeRepository();
+    @Inject
+    public HomeViewModel() {
+
+    }
+
+    @Inject
+    public HomeRepository mRepository;
 
     public final MutableLiveData<List<HomeModel>> homeData = new MutableLiveData<>();
 
