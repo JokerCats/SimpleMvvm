@@ -3,9 +3,15 @@ package net.jkcats.simplemvvm.basics;
 import androidx.lifecycle.ViewModel;
 
 import net.jkcats.simplemvvm.assist.SingleLiveData;
-import net.jkcats.simplemvvm.network.RequestBlock;
+import net.jkcats.simplemvvm.network.api.RequestBlock;
+import net.jkcats.simplemvvm.network.proxy.ClientProxy;
+
+import javax.inject.Inject;
 
 public abstract class BaseViewModel extends ViewModel {
+
+    @Inject
+    protected ClientProxy mClientProxy;
 
     protected SingleLiveData<String> mCrashData = new SingleLiveData<>();
 
@@ -13,15 +19,13 @@ public abstract class BaseViewModel extends ViewModel {
 
     public void sendRequestWithLoading(RequestBlock block) {
         invokeLoading();
-        new Thread(() -> {
-            try {
-                block.invoke();
-            } catch (Exception exception) {
-                mCrashData.postValue(exception.getMessage());
-            } finally {
-                finishLoading();
-            }
-        }).start();
+        try {
+            block.invoke();
+        } catch (Exception exception) {
+            mCrashData.postValue(exception.getMessage());
+        } finally {
+            finishLoading();
+        }
     }
 
     private void invokeLoading() {

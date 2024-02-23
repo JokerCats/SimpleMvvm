@@ -1,4 +1,4 @@
-package net.jkcats.simplemvvm.network;
+package net.jkcats.simplemvvm.network.api;
 
 public class RequestConfig {
 

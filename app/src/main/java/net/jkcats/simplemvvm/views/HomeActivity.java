@@ -20,7 +20,7 @@ public class HomeActivity extends StandardActivity<HomeViewModel> {
 
     @Override
     public int setPageResID() {
-        return R.layout.activity_main;
+        return R.layout.activity_home;
     }
 
     @Override
@@ -40,10 +40,10 @@ public class HomeActivity extends StandardActivity<HomeViewModel> {
         });
 
         if (mViewModel != null) {
-            mViewModel.homeData.observe(this, homeModels -> {
+            mViewModel.homeData.observe(this, model -> {
                 StringBuilder builder = new StringBuilder();
-                for (HomeModel model : homeModels) {
-                    builder.append(model.title).append("\r\n");
+                for (HomeModel.HomeData data : model.data) {
+                    builder.append(data.title).append("\r\n");
                 }
                 String content = builder.toString();
 

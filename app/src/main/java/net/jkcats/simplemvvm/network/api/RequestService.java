@@ -1,4 +1,4 @@
-package net.jkcats.simplemvvm.network;
+package net.jkcats.simplemvvm.network.api;
 
 import net.jkcats.simplemvvm.models.HomeModel;
 
@@ -10,5 +10,5 @@ import retrofit2.http.GET;
 public interface RequestService {
 
     @GET("banner/json")
-    Call<ResponseData<List<HomeModel>>> getHomeData();
+    Call<HomeModel> getHomeData();
 }
