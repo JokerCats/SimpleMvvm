@@ -1,23 +1,13 @@
 package net.jkcats.simplemvvm.basics;
 
-import android.os.Bundle;
 import android.widget.Toast;
 
-import androidx.annotation.LayoutRes;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
 public abstract class BaseActivity extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(setPageResID());
-        initViews();
-    }
 
     /**
      * 短暂提示信息
@@ -30,9 +20,4 @@ public abstract class BaseActivity extends AppCompatActivity {
             Toast.makeText(this, content, Toast.LENGTH_SHORT).show();
         }
     }
-
-    @LayoutRes
-    public abstract int setPageResID();
-
-    protected abstract void initViews();
 }

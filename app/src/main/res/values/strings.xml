@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">SimpleMvvm</string>
+
+    <string name="menu_theme_light">Theme Light</string>
+    <string name="menu_theme_dark">Theme Dark</string>
+
+    <string name="menu_group_ui">UI</string>
+    <string name="menu_group_data">Data</string>
+
+    <string name="menu_item_room">Room</string>
+    <string name="menu_item_network">Network</string>
+    <string name="menu_item_navigation">Navigation</string>
+
+    <string name="get_remote_data">get remote data</string>
 </resources>

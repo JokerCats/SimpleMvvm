@@ -3,11 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_simple_mvvm"
-    app:startDestination="@id/home_dest">
+    app:startDestination="@id/network_dest">
 
     <fragment
-        android:id="@+id/home_dest"
-        android:name="net.jkcats.simplemvvm.views.HomeFragment"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/network_dest"
+        android:name="net.jkcats.simplemvvm.views.NetworkFragment"
+        android:label="@string/menu_item_network"
+        tools:layout="@layout/fragment_network" />
+
+    <fragment
+        android:id="@+id/navigation_dest"
+        android:name="net.jkcats.simplemvvm.views.NavigationFragment"
+        android:label="@string/menu_item_navigation"
+        tools:layout="@layout/fragment_navigation" />
 
 </navigation>

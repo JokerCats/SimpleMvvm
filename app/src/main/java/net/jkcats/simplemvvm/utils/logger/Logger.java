@@ -1,23 +1,21 @@
-package net.jkcats.simplemvvm.utils;
+package net.jkcats.simplemvvm.utils.logger;
 
 import android.text.TextUtils;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
 
-import net.jkcats.simplemvvm.utils.logger.Logger;
+public class Logger {
 
-public class LogUtils {
-
-    private static final String TAG = "jk";
+    private static final String LOGCAT_TAG = "jk";
 
     private static final String EMPTY_MESSAGE = "empty message.";
 
     private static final String UNKNOWN_MESSAGE = "unknown message.";
 
-    private static void dispatchContent(@Logger int logger, @Nullable Object object) {
+    private static void dispatchContent(int tag, @Nullable Object object) {
         if (object == null) {
-            output(logger, EMPTY_MESSAGE);
+            output(tag, EMPTY_MESSAGE);
         } else {
             final String message;
 
@@ -29,47 +27,48 @@ public class LogUtils {
                 message = null;
             }
 
-            output(logger, message);
+            output(tag, message);
         }
     }
 
-    public static void output(@Logger int logger, @Nullable String message) {
+    private static void output(int tag, @Nullable String message) {
         if (TextUtils.isEmpty(message)) {
-            Log.e(TAG, UNKNOWN_MESSAGE);
+            Log.e(LOGCAT_TAG, UNKNOWN_MESSAGE);
         } else {
-            switch (logger) {
-                case Logger.ERROR:
-                    Log.e(TAG, message);
+            switch (tag) {
+                case Log.ERROR:
+                    Log.e(LOGCAT_TAG, message);
                     break;
-                case Logger.INFO:
-                    Log.i(TAG, message);
+                case Log.INFO:
+                    Log.i(LOGCAT_TAG, message);
                     break;
-                case Logger.DEBUG:
-                    Log.d(TAG, message);
+                case Log.DEBUG:
+                    Log.d(LOGCAT_TAG, message);
                     break;
-                case Logger.WARNING:
-                    Log.w(TAG, message);
+                case Log.WARN:
+                    Log.w(LOGCAT_TAG, message);
                     break;
                 default:
-                    Log.wtf(TAG, message);
+                    Log.wtf(LOGCAT_TAG, message);
                     break;
             }
         }
     }
 
     public static void error(@Nullable Object message) {
-        dispatchContent(Logger.ERROR, message);
+        dispatchContent(Log.ERROR, message);
     }
 
     public static void info(@Nullable Object message) {
-        dispatchContent(Logger.INFO, message);
+        dispatchContent(Log.INFO, message);
     }
 
     public static void debug(@Nullable Object message) {
-        dispatchContent(Logger.DEBUG, message);
+        dispatchContent(Log.DEBUG, message);
     }
 
-    public static void warning(@Nullable Object message) {
-        dispatchContent(Logger.WARNING, message);
+    public static void warn(@Nullable Object message) {
+        dispatchContent(Log.WARN, message);
     }
+
 }

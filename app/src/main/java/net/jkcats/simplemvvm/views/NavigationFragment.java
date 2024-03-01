@@ -10,13 +10,14 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import net.jkcats.simplemvvm.R;
+import net.jkcats.simplemvvm.basics.StandardFragment;
 
-public class NetworkFragment extends Fragment {
+public class NavigationFragment extends StandardFragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_network, container, false);
+        return inflater.inflate(R.layout.fragment_navigation, container, false);
     }
 
     @Override
