@@ -1,10 +1,15 @@
 package net.jkcats.simplemvvm.viewmodels;
 
+import static net.jkcats.simplemvvm.network.proxy.ClientProxy.mRetrofit;
+
 import androidx.lifecycle.MutableLiveData;
 
 import net.jkcats.simplemvvm.basics.BaseViewModel;
 import net.jkcats.simplemvvm.models.HomeModel;
 import net.jkcats.simplemvvm.network.callback.ServerCallback;
+import net.jkcats.simplemvvm.network.process.rxjava.BaseObserver;
+
+import java.util.ArrayList;
 
 import javax.inject.Inject;
 
@@ -19,6 +24,8 @@ public class HomeViewModel extends BaseViewModel {
     }
 
     public final MutableLiveData<HomeModel> homeData = new MutableLiveData<>();
+
+    public final MutableLiveData<ArrayList<HomeModel.HomeData>> homeData2 = new MutableLiveData<>();
 
     public void getHomeData() {
         sendRequestWithLoading(
@@ -35,6 +42,17 @@ public class HomeViewModel extends BaseViewModel {
                             }
                         }
                 )
+        );
+    }
+
+    public void getBannerData() {
+        sendRequestWithLoading(() ->
+                mClientProxy.sendRequest(mRetrofit.getBannerData(), new BaseObserver<ArrayList<HomeModel.HomeData>>() {
+                    @Override
+                    protected void onSuccess(ArrayList<HomeModel.HomeData> response) {
+                        homeData2.postValue(response);
+                    }
+                })
         );
     }
 }
