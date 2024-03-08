@@ -35,7 +35,11 @@ public class HomeActivity extends StandardActivity<HomeViewModel> {
         mSendBtn.setOnClickListener(v -> {
             // 请求数据
             if (mViewModel != null) {
-//                mViewModel.getHomeData();
+                mViewModel.getHomeData();
+            }
+        });
+        findViewById(R.id.btn_send_rx).setOnClickListener(v -> {
+            if (mViewModel != null) {
                 mViewModel.getBannerData();
             }
         });
@@ -61,7 +65,9 @@ public class HomeActivity extends StandardActivity<HomeViewModel> {
             mViewModel.homeData2.observe(this, homeModels -> {
                 StringBuilder builder = new StringBuilder();
                 for (HomeModel.HomeData homeModel : homeModels) {
-                    builder.append(homeModel.title).append("\r\n");
+                    builder.append("\r\n").append(" -- from rxjava--").append("\r\n")
+                            .append(homeModel.title)
+                            .append("\r\n");
                 }
                 String content = builder.toString();
 
@@ -69,8 +75,8 @@ public class HomeActivity extends StandardActivity<HomeViewModel> {
                     mContentTv.setTextColor(Color.RED);
                     mContentTv.setText(getString(R.string.app_name));
                 } else {
-                    mContentTv.setTextColor(Color.GREEN);
-                    mContentTv.setText(content);
+                    mContentTv.setTextColor(Color.BLUE);
+                    mContentTv.append(content);
                 }
             });
 

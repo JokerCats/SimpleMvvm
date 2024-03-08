@@ -2,6 +2,7 @@ package net.jkcats.simplemvvm.basics;
 
 import android.app.Application;
 
+import net.jkcats.simplemvvm.network.process.Okhttp3Process;
 import net.jkcats.simplemvvm.network.process.rxjava.RxJavaProcess;
 import net.jkcats.simplemvvm.network.proxy.ClientProxy;
 

@@ -14,8 +14,8 @@ import io.reactivex.rxjava3.disposables.Disposable;
 import retrofit2.HttpException;
 
 /**
- * 处理返回结果
- * @param <T>
+ * 用于接收并处理响应结果的 Observer
+ * @param <T> 响应数据的类型
  */
 public abstract class BaseObserver<T> implements Observer<ResponseDataRx<T>> {
 

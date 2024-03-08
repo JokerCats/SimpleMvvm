@@ -12,7 +12,7 @@ import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 /**
- * BaseMvpPresenter / BaseModel
+ * 使用 Rxjava + Retrofit 执行网络请求并处理返回结果。
  */
 public class RxJavaProcess implements IClientProcess {
 
