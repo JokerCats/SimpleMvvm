@@ -14,6 +14,13 @@
         android:text="get remote data"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/btn_send_rx"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="get remote data(RxJava + Retrofit)"
+        app:layout_constraintTop_toBottomOf="@id/btn_send" />
+
     <TextView
         android:id="@+id/tv_content"
         android:layout_width="0dp"
@@ -23,6 +30,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_send" />
+        app:layout_constraintTop_toBottomOf="@id/btn_send_rx" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
