@@ -59,4 +59,15 @@ dependencies {
     implementation(libs.adapter.rxjava3)
     implementation(libs.rxandroid)
     implementation(libs.rxjava)
+
+    // ######## Support Room db start ########
+    // https://developer.android.google.cn/training/data-storage/room?hl=zh-cn
+    implementation(libs.androidx.room.runtime)
+    annotationProcessor(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.rxjava3)               // RxJava3 support for Room
+    // 如果使用 Kotlin语言 请按需打开下方注释
+    // kapt("androidx.room:room-compiler:$room_version")     // 使用Kotlin标注处理工具(kapt)
+    // ksp("androidx.room:room-compiler:$room_version")      // 使用Kotlin符号处理(KSP)
+    // implementation("androidx.room:room-ktx:$room_version")// 可选——Kotlin扩展和协程支持Room
+    // ######## Support Room db end  ########
 }
