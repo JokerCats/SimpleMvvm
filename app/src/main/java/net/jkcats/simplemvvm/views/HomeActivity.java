@@ -38,6 +38,11 @@ public class HomeActivity extends StandardActivity<HomeViewModel> {
                 mViewModel.getHomeData();
             }
         });
+        findViewById(R.id.btn_send_rx).setOnClickListener(v -> {
+            if (mViewModel != null) {
+                mViewModel.getBannerData();
+            }
+        });
 
         if (mViewModel != null) {
             mViewModel.homeData.observe(this, model -> {
@@ -55,6 +60,26 @@ public class HomeActivity extends StandardActivity<HomeViewModel> {
                     mContentTv.setText(content);
                 }
             });
+
+            // test Rxjava
+            mViewModel.homeData2.observe(this, homeModels -> {
+                StringBuilder builder = new StringBuilder();
+                for (HomeModel.HomeData homeModel : homeModels) {
+                    builder.append("\r\n").append(" -- from rxjava--").append("\r\n")
+                            .append(homeModel.title)
+                            .append("\r\n");
+                }
+                String content = builder.toString();
+
+                if (content.isEmpty()) {
+                    mContentTv.setTextColor(Color.RED);
+                    mContentTv.setText(getString(R.string.app_name));
+                } else {
+                    mContentTv.setTextColor(Color.BLUE);
+                    mContentTv.append(content);
+                }
+            });
+
         }
     }
 }
