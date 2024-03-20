@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.googleDaggerHiltAndroid)
+    alias(libs.plugins.jetbrainsKotlinAndroid)// support kotlin
 }
 
 android {
@@ -28,6 +29,9 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 }
 
@@ -59,4 +63,7 @@ dependencies {
     implementation(libs.adapter.rxjava3)
     implementation(libs.rxandroid)
     implementation(libs.rxjava)
+
+    // kotlin
+    implementation(libs.androidx.core.ktx)
 }
