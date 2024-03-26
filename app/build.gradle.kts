@@ -18,13 +18,31 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
-            )
+    signingConfigs {
+        create("release_signing") {
+            keyAlias = "OneTapBUY"
+            keyPassword = "s0K7H1VM"
+            storeFile = file(path = "onetapbuy.jks")
+            storePassword = "s0K7H1VM"
         }
+    }
+
+    buildTypes {
+//        release {
+//            isMinifyEnabled = false
+//            proguardFiles(
+//                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+//            )
+//        }
+
+        getByName("release") {
+            isDebuggable = false
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), file("proguard-rules.pro"))
+            signingConfig = signingConfigs.getByName("release_signing")
+        }
+
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -36,7 +54,7 @@ android {
 }
 
 dependencies {
-
+    implementation(fileTree(mapOf("dir" to "libs", "include" to arrayOf("*.jar"))))
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.constraintlayout)
@@ -66,4 +84,9 @@ dependencies {
 
     // kotlin
     implementation(libs.androidx.core.ktx)
+
+    // WorkManager
+    implementation(libs.androidx.work.runtime)// (Java only)
+    implementation(libs.androidx.work.runtime.ktx)//Kotlin + coroutines
+    implementation(libs.androidx.work.rxjava3)// optional - RxJava3 support
 }
