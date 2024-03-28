@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SimpleMvvm</string>
+
+    <string name="main_title">Press Register to initial, and start receive recognition data</string>
+    <string name="register">register</string>
+    <string name="unregister">unregister</string>
+    <string name="output_raw_data">Output raw data</string>
+</resources>

@@ -89,4 +89,12 @@ dependencies {
     implementation(libs.androidx.work.runtime)// (Java only)
     implementation(libs.androidx.work.runtime.ktx)//Kotlin + coroutines
     implementation(libs.androidx.work.rxjava3)// optional - RxJava3 support
+
+    // ###### 努瓦机器人 start ####
+    // MUST use lib
+    implementation (libs.gson)
+    implementation( libs.jackson.databind)
+    implementation( libs.jackson.core)
+    implementation(files("libs/NuwaSDK-2021-07-08_1058_2.1.0.08_e21fe7.aar"))
+    // ###### 努瓦机器人 end ####
 }

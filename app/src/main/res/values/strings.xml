@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">SimpleMvvm</string>
+
+    <string name="main_title">点击注册以初始化，开始接收识别数据</string>
+    <string name="register">注册</string>
+    <string name="unregister">注销</string>
+    <string name="output_raw_data">输出原始数据</string>
 </resources>
