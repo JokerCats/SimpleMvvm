@@ -1,6 +1,7 @@
 [versions]
 agp = "8.3.0"
 constraintlayout = "2.1.4"
+glide = "4.16.0"
 gson = "2.10.1"
 hiltAndroidCompiler = "2.44"
 hiltAndroid = "2.44"
@@ -33,6 +34,7 @@ androidx-work-runtime = { module = "androidx.work:work-runtime", version.ref = "
 androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "workRuntime" }
 androidx-work-rxjava3 = { module = "androidx.work:work-rxjava3", version.ref = "workRuntime" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroidCompiler" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
