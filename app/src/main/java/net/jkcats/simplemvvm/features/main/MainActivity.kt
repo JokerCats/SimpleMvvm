@@ -17,6 +17,7 @@ import com.nuwarobotics.service.camera.sdk.CameraSDK
 import com.nuwarobotics.service.camera.sdk.OutputData
 import net.jkcats.simplemvvm.R
 import net.jkcats.simplemvvm.basics.StandardActivity
+import net.jkcats.simplemvvm.features.face.FaceControlExampleActivity
 import net.jkcats.simplemvvm.features.main.data.FRData
 import java.io.IOException
 
@@ -66,6 +67,7 @@ class MainActivity : StandardActivity<MainModel>() {
 
             R.id.takePhoto -> {
                 cameraSDK.takePicture()
+                startActivity(Intent(this, FaceControlExampleActivity::class.java))
             }
         }
     }

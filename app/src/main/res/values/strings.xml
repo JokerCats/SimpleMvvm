@@ -5,4 +5,15 @@
     <string name="register">注册</string>
     <string name="unregister">注销</string>
     <string name="output_raw_data">输出原始数据</string>
+
+
+    <!-- 人脸控制示例 -->
+    <string name="txt_start_demo">开始演示</string>
+    <string name="facecontrol_sdk_example_title">人脸控制 SDK 示例</string>
+    <string name="facecontrol_sdk_example_show_face">尝试按下按钮与人脸一起说出 TTS，并在 TTS 结束后隐藏人脸。</string>
+
+    <!-- 系统控制示例 -->
+    <string name="disablepowerkey_sdk_example_title">禁用电源键 SDK 示例</string>
+    <string name="disablepowerkey_sdk_example_content">尝试按下电源键</string>
+
 </resources>

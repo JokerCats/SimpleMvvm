@@ -38,6 +38,7 @@
             android:name=".views.HomeActivity"
             android:exported="false"/>
         <activity android:name="net.jkcats.simplemvvm.features.main.MainActivity" />
+        <activity android:name="net.jkcats.simplemvvm.features.face.FaceControlExampleActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
